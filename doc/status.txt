@@ -1,0 +1,10 @@
+Component           Status
+===============     ============================
+Histogram           production
+Cloud               production
+Tree                production
+Tuple               production
+Fitter              stable 
+Function            stable
+Plotter             stable -- Style related classes may change slightly in AIDA 3.1
+AnalysisFactory     production

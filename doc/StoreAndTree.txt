@@ -1,0 +1,28 @@
+Documentation of the behaviour of the Tree and the Store 
+========================================================
+
+When you create a Tree it is associated with a Store 
+(Maybe a dummy Store).
+
+When you create a Factory it may be associated with a 
+Tree (and thus implicitly with a Store).
+
+Committing a Tree causes all the objects in that Tree 
+to be stored.
+
+Trees can contain "mount points" to other trees, which 
+may have a different store. Mount points are not 
+followed when storing trees. But the mount point itself 
+is stored.
+
+When the factory creates an Object which needs a Backing 
+Store, such as NTuple and Cloud, it passes the the store
+to the constructor. Other objects, such as Histograms do
+NOT get the store passed into the constructor.
+
+Symbolic links can only point within the same tree (they
+cannot cross mount points).
+
+We need a copy method to perform a deep-copy of part of 
+the Tree.
+

@@ -1,0 +1,71 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<link rel="stylesheet" type="text/css" href="aida.css">
+</head>
+
+<body>
+
+<h3><a name="Fitter">Fitter</a></h3>
+<p>The AIDA <a href="../api/hep/aida/IFitter.html">IFitter</a> interface provides the user the
+possibility to fit IFunctions to any AIDA data storage object. Binned fits can be perfomed
+on IHistograms, IProfiles and IDataPointSets, while unbinned fits can be performed on IClouds
+and ITuples. Simple fits can be perfomed directely on the data storage objects while the
+<a href="../api/hep/aida/IFitData.html">IFitData</a> interface is to be used for a greater
+control over the data, in particular its ranges and the connection to the IFunction's variables.
+Through the IFitter it is also possible to change the underlying optimization engine as well as
+the fit method used. </p>
+
+<h4><a name="Chi2FitToHistogram">Chi2 Fit to an IHistogram</a></h4>
+<p>
+A simple chi2 fit to an histogram is perfomed in the example below:
+</p>
+
+<p><!--webbot bot="HTMLMarkup" StartSpan --><servlet code="ColorizeServlet">
+<param name="source" value="examples/Chi2FitToHistogram.java">
+</servlet><!--webbot BOT="HTMLMarkup" endspan --></p>
+
+<h4><a name="SimpleBinnedAndUnbinnedFits">Simple Binned and Unbinned Fits</a></h4>
+<p>
+In the example below it is shown how to perfom a binned and an unbinned fit over the same
+data using different optimizers and fit methods.
+</p>
+<p>
+In the JAIDA implementation there are currently two optimizers available: <i>Minuit</i> and
+<i>Uncmin</i> and it is possible to choose among the following fit methods: <i>ChiSquared</i>,
+<i>CleverChiSquared</i>, <i>BinnedMaximumLikelihood</i>, <i>LeastSquares</i>, <i>UnbinnedMaximumLikelihood</i>.
+
+<p><!--webbot bot="HTMLMarkup" StartSpan --><servlet code="ColorizeServlet">
+<param name="source" value="examples/SimpleFit.java">
+</servlet><!--webbot BOT="HTMLMarkup" endspan --></p>
+
+<h4><a name="ControlFitParametersAndConstraints">Control fit parameters and set constraints</a></h4>
+<p>
+With the IFitter interface it is possible to have a more direct control over the fit:
+the parameters in the fit can be controlled with the <a href="../api/hep/aida/IFitParameterSettings.html">IFitParameterSettings</a> 
+interface and it is also possible to set constraints among them.
+In the example below we create a scripted function an show how to control its parameters:
+</p>
+
+<p><!--webbot bot="HTMLMarkup" StartSpan --><servlet code="ColorizeServlet">
+<param name="source" value="examples/ComplexFit.java">
+</servlet><!--webbot BOT="HTMLMarkup" endspan --></p>
+
+<h4><a name="ScansAndContours">Scans and contours</a></h4>
+<p>
+Scans and contours can be obtained as shown below:
+</p>
+
+<p><!--webbot bot="HTMLMarkup" StartSpan --><servlet code="ColorizeServlet">
+<param name="source" value="examples/ScanAndContour.java">
+</servlet><!--webbot BOT="HTMLMarkup" endspan --></p>
+
+<hr>
+$Id: fitter.shtml,v 1.3 2002/11/14 00:21:45 turri Exp $
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<link rel="stylesheet" type="text/css" href="aida.css">
+</head>
+
+<body>
+
+<h2><a name="Introduction">Introduction</a></h2>
+<h3><a name="What is AIDA">What is AIDA?</a></h3>
+<p>AIDA is a standard set of interfaces for creating and manipulating 
+histograms, n-tuples and related data analysis objects. It has been created 
+cooperatively by a <a href="http://aida.freehep.org/guilty_parties.thtml">group of developers</a> working on high-energy physics data 
+analysis tools. The goal of the AIDA project is to provide the user with a 
+powerful set of interfaces which can be used regardless of which analysis tool 
+they are using. The advantages of this approach are that:</p>
+<ol>
+  <li>The user will only need to learn one set of interfaces even if they use 
+  more than one tool.</li>
+  <li>By pooling the experiences of several different development teams we will be able 
+  to develop a more complete solution to the data analysis problem.</li>
+  <li>Different analysis tools built using AIDA will be able to interoperate, 
+  for example by exchanging objects in a common storage format (initially XML).</li>
+</ol>
+<p>Currently two versions of the AIDA interfaces exist, one for Java and one for 
+C++. The two interfaces are  as identical as the underlying languages will 
+permit.</p>
+<p>We have been careful to avoid using a &quot;lowest common denominator&quot; approach in 
+the development of the AIDA interfaces. Rather than limiting ourselves by the 
+existing capabilities of the underlying analysis tools, we have designed a rich 
+set of interfaces, with the expectation that the tool developers will need to 
+add new features to support the full AIDA functionality. This does mean however 
+that the early implementations of AIDA may not completely implement all 
+features.</p>
+<h3><a name="Example">An Example AIDA Program</a></h3>
+<p>Before going into details, here is a trivial example program that uses the 
+AIDA interfaces to create a 1D histogram, and display it.</p>
+<p><!--webbot bot="HTMLMarkup" StartSpan --><servlet code="ColorizeServlet">
+<param name="source" value="examples/Histogram.java">
+</servlet><!--webbot BOT="HTMLMarkup" endspan --></p>
+<p>A few things to notice in this example, first note that AIDA objects are always 
+created from factories. Although different implementations of AIDA may return 
+different objects from their factories, the returned objects will all implement 
+the same standard AIDA interfaces. In this way it is possible to change from one 
+AIDA implementation to another just by changing which 
+<a href="../api/hep/aida/IAnalysisFactory.html">IAnalysisFactory</a> is used. </p>
+<h2><a name="Overview">Overview of AIDA Classes</a></h2>
+<p>The rest of this document describes the key features that the AIDA user will 
+need to know about:</p>
+<ul>
+  <li><a href="factories.shtml">Factories</a> - Used to instantiate new AIDA objects</li>
+  <li><a href="histograms.shtml">Histograms</a> - 1D, 2D and 3D binned histograms.</li>
+  <li><a href="clouds.shtml">Clouds</a> - 1D, 2D, and 3D un-binned histograms, useful for scatter plots, rebinnable histograms and for unbinned fits. </li>
+  <li><a href="tuples.shtml">Tuples</a> - Arbitrary dimension Tuples </li>
+  <li><a href="trees.shtml">Trees</a> - Used for arranging objects into folders, and for IO.</li>
+  <li><a href="functions.shtml">Functions</a> - Used for plotting functions and fitting</li>
+  <li><a href="fitter.shtml">Fitter</a> - Used to perform binned and unbinned fits to the AIDA data storage objects</li>
+</ul>
+
+<h3><a name="Factories">Factories</a></h3>
+<p>In AIDA instead of creating objects directly using &quot;new&quot; one uses factories. 
+There is one &quot;master&quot; factory, <a href="../api/hep/aida/IAnalysisFactory.html">
+IAnalysisFactory</a> from which other factories are obtained. The 
+IAnalysisFactory allows you to obtain factories for creating trees (<a href="../api/hep/aida/ITreeFactory.html">ITreeFactory</a>), 
+histograms, clouds and profile histograms (<a href="../api/hep/aida/IHistogramFactory.html">IHistogramFactory</a>), tuples 
+(<a href="../api/hep/aida/ITupleFactory.html">ITupleFactory</a>) etc. </p>
+<p>You will see many examples of using factories in the remainder of this guide.</p>
+
+
+<p><a href="index.shtml">Table of Contents </a>-- <a href="histograms.shtml">
+Next Section</a></p>
+
+
+<hr>
+$Id: factories.shtml,v 1.4 2002/11/13 02:45:03 tonyj Exp $
+</body>
+
+</html>

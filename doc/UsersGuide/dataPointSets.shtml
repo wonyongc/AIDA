@@ -1,0 +1,53 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<link rel="stylesheet" type="text/css" href="aida.css">
+</head>
+
+<body>
+
+<h3><a name="DataPointSets">DataPointSets</a></h3>
+<p>An <a href="../api/hep/aida/IDataPointSet.html">IDataPointSet</a> is a collection of 
+<a href="../api/hep/aida/IDataPoint.html">IDataPoints</a>. Each IDataPoint is an n-dimensional
+collection of <a href="../api/hep/aida/IMeasurement.html">IMeasurements</a>. Through an 
+<a href="../api/hep/aida/IDataPointSetFactory.html">IDataPointSetFactory</a> it is possible to either create
+empty IDataPointSets or already full sets using the data stored in IHistograms, IClouds and IProfiles.
+IDataPoints and IMeasurements cannot be created, they can only be accessed through the IDataPointSet.</p>
+<p>AIDA also provides arithmetic operations among IDataPointSets that have the same size and the same dimension.</p>
+
+
+<h4><a name="DataPointSetCreateAndFill">Create and Fill an IDataPointSet</a></h4>
+<p>
+In the example below we show how to create an empty one and two dimensional IDataPointSet, how to fill it and plot it:
+</p>
+<p><!--webbot bot="HTMLMarkup" StartSpan --><servlet code="ColorizeServlet">
+<param name="source" value="examples/DataPointSetCreateAndFill.java">
+</servlet><!--webbot BOT="HTMLMarkup" endspan --></p>
+
+<h4><a name="DataPointSetCreateFillAndFit">Create, Fill and Fit an IDataPointSet</a></h4>
+<p>
+In the example below we show how to fit a two dimensional IDataPointSet, with a one dimensional, second order polynomial
+</p>
+<p><!--webbot bot="HTMLMarkup" StartSpan --><servlet code="ColorizeServlet">
+<param name="source" value="examples/CreateAndFitDataPointSet.java">
+</servlet><!--webbot BOT="HTMLMarkup" endspan --></p>
+
+<h4><a name="DataPointSetCreateFromData">Create an IDataPointSet from another AIDA data source</a></h4>
+<p>Through the IDataPointSetFactory it is easy to convert an IHistogram, an ICloud or an IProfile to
+an IDataPointSet as shown in the example below:
+</p>
+<p><!--webbot bot="HTMLMarkup" StartSpan --><servlet code="ColorizeServlet">
+<param name="source" value="examples/DataPointSetCreateFromData.java">
+</servlet><!--webbot BOT="HTMLMarkup" endspan --></p>
+
+<p><a href="index.shtml">Table of Contents </a>-- <a href="tuples.shtml">Next Section</a></p>
+
+<hr>
+$Id: dataPointSets.shtml,v 1.3 2003/03/20 23:15:50 turri Exp $
+</body>
+
+</html>

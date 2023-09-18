@@ -1,0 +1,114 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<link rel="stylesheet" type="text/css" href="aida.css">
+</head>
+
+<body>
+
+<h3><a name="Tuples">Tuples</a></h3>
+<p>The AIDA <a href="../api/hep/aida/ITuple.html">ITuple</a> interface provides a way to store and retrieve 
+n-tuple data.</p>
+
+
+
+<h4><a name="CreateATuple">Create an ITuple</a></h4>
+<p>ITuples are created through a <a href="../api/hep/aida/ITupleFactory.html">ITupleFactory</a> by providing the name and
+the type of the columns within the Tuple; this can be done in two different ways:</p>
+<p><!--webbot bot="HTMLMarkup" StartSpan --><servlet code="ColorizeServlet">
+<param name="source" value="examples/TupleCreate.java">
+</servlet><!--webbot BOT="HTMLMarkup" endspan --></p>
+
+<p>In the code above <i>tuple1</i> is created by providing the factory two arrays specifying, respectively, 
+the name and the type ( i.e. the Class ) of the Tuple's columns. Alternatively we create <i>tuple2</i> by
+providing the ITupleFactory a single string with name and type for all the columns separated by either 
+a <i>coma (,)</i> or by a <i>semicolon (;)</i>. In both cases the default values are specified by 
+following the column's name with <i> = value </i>. Please note that spaces are ignored.</p>
+<p>There are all-together ten different types of columns: the eight primitive types ( int, short, long, float,
+double, char, boolean, byte ), String and Object. </p>
+
+
+
+<h4><a name="FillATuple">Fill and retrieve data from an ITuple</a></h4>
+
+<p>An ITuple is filled by rows as shown below:</p>
+<p><!--webbot bot="HTMLMarkup" StartSpan --><servlet code="ColorizeServlet">
+<param name="source" value="examples/Tuple.java">
+</servlet><!--webbot BOT="HTMLMarkup" endspan --></p>
+<p>The <i>addRow()</i> method commits the row to storage. If the <i>fill</i> method has not been invoked for
+ a given column when <i>addRow()</i> is reached, that column will be filled with its default value.</p>
+
+<p>Please note that for each column type there is an appropriate <i>get</i> method.
+
+
+
+<h4><a name="FiltersAndEvaluators">Use of IFilters and IEvaluators</a></h4>
+
+<p><a href="../api/hep/aida/IFilter.html">IFilter</a> and <a href="../api/hep/aida/IEvaluator.html">IEvaluator</a> 
+are simple objects that can be created by 
+<a href="../api/hep/aida/ITupleFactory.html">ITupleFactory</a> and help manage data in an <a href="../api/hep/aida/ITuple.html">ITuple</a>.
+Corresponding "create" methods in the factory take <i>String</i> that can contain ITuple column names, standard arithmetical
+and boolean operators (like +, -, /, *, > , <, ==, ...) and standard functions from the java.lang.Math class ( sin, exp, pow, ...). 
+The string should evaluate to <i>boolean</i> for IFilter and to <i>double</i> for IEvaluator. </p>
+
+<p>Example below demonstrates how to use 
+<a href="../api/hep/aida/IFilter.html">IFilter</a> and <a href="../api/hep/aida/IEvaluator.html">IEvaluator</a>
+to filter and evaluate ITuple data on a row-by-row basis (1) and how to fill histograms from an ITuple (2). </p>
+
+<p><b>Note:</b> IFilters and IEvaluators are created as a stand-alone objects. You must associate them with ITuple
+with <i>initialize(ITuple tuple)</i> method before you can use them. </p>
+
+</p>
+<p><!--webbot bot="HTMLMarkup" StartSpan --><servlet code="ColorizeServlet">
+<param name="source" value="examples/FilterAndEvaluatorExample.java">
+</servlet><!--webbot BOT="HTMLMarkup" endspan --></p>
+
+
+
+<h4><a name="ChainedAndFilteredTuples">Create Chained and Filtered ITuples</a></h4>
+
+<a href="../api/hep/aida/ITupleFactory.html">ITupleFactory</a> has several methods to group  
+<a href="../api/hep/aida/ITuple.html">ITuples</a> together and to create ITuple with a reduced data set.
+
+<p><i>createChained</i> methods create a logical chain of ITuples. All ITuples in the set must have the same structure and resulting chained ITuple can not be filled. In a sense, chained ITuple is just a view of original Ituples, so no data is copied during creation of chained ITuple.
+</p>
+
+<p><i>createFiltered</i> method creates a new reduced tuple (less rows) from an existing one by applying a filter. Data is explicitly copied to a new n-tuple. User also has ability to copy only selected subset of columns by providing array with column names
+</p>
+
+</p>
+<p><!--webbot bot="HTMLMarkup" StartSpan --><servlet code="ColorizeServlet">
+<param name="source" value="examples/ChainedAndFilteredTuplesExample.java">
+</servlet><!--webbot BOT="HTMLMarkup" endspan --></p>
+
+
+
+<h4><a name="ComplexTuple">ITuple with complex structure.</a></h4>
+<p>
+Within AIDA it is possible to create ITuples containing columns of ITuples. This allows the user to create
+ITuples with complex structures. Here is an example of how to create,
+fill and retrieve data from such an ITuple: </p>
+<p><!--webbot bot="HTMLMarkup" StartSpan --><servlet code="ColorizeServlet">
+<param name="source" value="examples/createAndFillTupleWithComplexStructure.java">
+</servlet><!--webbot BOT="HTMLMarkup" endspan --></p>
+<p>Notice the different ways of accessing the inner ITuple when filling and when retrieving the data.
+The <i>getTuple(int index)</i> method returns the ITuple ready to be filled, while the <i>getObject(int index)</i>
+method, invoked on the same column, returns the same ITuple but with the current row pointing to the current
+row of the higher level ITuple. For this reason the <i>getObject(int index)</i> method is used to retrieve the data.
+Also notice that the <i>addRow()</i> method has to be called for each of the individual inner ITuples
+evey time a row is ready to be stored.</p>
+
+
+<p><a href="index.shtml">Table of Contents </a>-- <a href="trees.shtml">Next 
+Section</a></p>
+
+
+<hr>
+$Id: tuples.shtml,v 1.7 2002/11/13 02:35:13 tonyj Exp $
+</body>
+
+</html>

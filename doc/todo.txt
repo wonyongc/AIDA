@@ -1,0 +1,58 @@
+ToDo:
+- put version number in text file and copy it into any of the files.
+- (TJ) change root address of FreeHEP repository
+- (TJ) Aida web pages should refer to users, ref and dev implementations.
+- (TJ) Aida web pages should go in the same repository
+
+- Use of backing store for large numbers of histograms?
+
+Questions for AIDA 2.0 (Boston):
+- are the arrays as input and output in C++ actually vectors?
+- what about iterator in ls() methods?
+- if so, should we use the same in Java?
+- missing functions getName/getLabel/Title in JTuple?
+- find name for developers interface package
+- discuss new interfaces
+- name, label, which one is ID
+- policy for creating with respect to the tree
+- policy for duplication of objects
+- policy of name, label default
+
+Questions for AIDA 2.3 (GB)
+- Pertinency of IAnnotation. IAnnotation over IHistogram AND ICloud, 
+  IFunction, ITuple ? Do we expect to save / retreive annotations ?
+- What is missing in order to have interoperability between
+  histogram implementation / plotter implementation ?
+- I<Bare>[Histogram, Cloud, Function].
+- IHistogram1D.clearFit.
+- IManagedObject.tree() to get the ITree of an object.
+- Have enum instead of string for function type, fitting type, plotting
+  parameters, etc...
+- document aida-config command.
+
+Questions for AIDA 2.3 (MD)
+- Should we have an "aida.h" file which includes all "AIDA/*.h" files
+  so that the user/tester only has to include one, and so that we can
+  easily test that the .h files of aida do not conflict with themselves?
+- How does one add an Annotation to a Histogram, and should the annotation()
+  method not return a reference rather than a pointer (just like: axis() does)?
+- The Iterator class, which we currently do NOT have but do use, should
+  it be some class from STD? If not the FreeHEP implementation includes 
+  an Iterator.h file which is coupled to java via a JIterator, which 
+  connects to a Java Iterator. The next() method currently returns 
+  a pointer, should that be a reference? 
+  Should we use this Iterator class?
+- The Tuple class seems to return an object of class NtupleEntry. If we 
+  need this class, may I suggest to name it TupleEntry, or rename Tuple
+  to NTuple.
+- The Tuple class has a method for filling bytes and one for characters.
+  In java char is 16 bit Unicode, which may not be very useful for Tuples,
+  but it could be mapped (via ASCII) to the fill(char) version of C++. 
+  The other method in java would be fill(byte) which would map to 
+  fill(unsigned char) in C++. Currently the byte method is uncommented
+  in the ITuple.h interface.
+- The java method createPlotter in the PlotterFactory seems to take no 
+  arguments, while the C++ method takes (int, char**). Should these be 
+  passed?
+  
+  

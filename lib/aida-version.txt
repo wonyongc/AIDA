@@ -1,0 +1,7 @@
+#
+# This file is generated, version number is in config/aida.properties
+#
+TITLE=AIDA Java
+VERSION=3.2.1
+DATE=October 3 2003
+TIME=1206

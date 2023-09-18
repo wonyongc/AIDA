@@ -1,0 +1,38 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<link rel="stylesheet" type="text/css" href="aida.css">
+</head>
+
+<body>
+
+<h3><a name="Histograms">Histograms</a></h3>
+<p>AIDA supports 1D, 2D and 3D histograms.&nbsp; Creating histograms is quite 
+straightforward using the methods in 
+<a href="../api/hep/aida/IHistogramFactory.html">IHistogramFactory</a>.</p>
+<p>Histograms support arithmetic operations, in particular add, subtract, 
+multiply and divide. In all cases the operation is applied bin-by-bin, and the 
+histograms involved in the operation must have the same binning. The input histograms are unchanged, and a new histogram is created as the result 
+of the operation. All of the arithmetic operations are methods of
+<a href="../api/hep/aida/IHistogramFactory.html">IHistogramFactory</a> to reflect the fact that a new histogram is always created as a 
+result of the operation. For multi-dimensional histograms it is also possible to create slices and 
+projections. </p>
+<p>The following example illustrates using histograms:</p>
+
+<h4><a name="HistogramArithmetic">Histogram Arithmetic</a></h4>
+<p><!--webbot bot="HTMLMarkup" StartSpan --><servlet code="ColorizeServlet">
+<param name="source" value="examples/HistogramArithmetic.java">
+</servlet><!--webbot BOT="HTMLMarkup" endspan --></p>
+
+<p><a href="index.shtml">Table of Contents </a>-- <a href="profiles.shtml">Next 
+Section</a></p>
+
+<hr>
+$Id: histograms.shtml,v 1.4 2002/11/16 00:27:11 turri Exp $
+</body>
+
+</html>

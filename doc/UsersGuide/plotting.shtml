@@ -1,0 +1,39 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<link rel="stylesheet" type="text/css" href="aida.css">
+</head>
+
+<body>
+
+<h3><a name="Plotting">Plotting</a></h3>
+
+<p>We have already seen simple use of plots the AIDA
+<a href="../api/hep/aida/IPlotter.html">IPlotter</a> interface. By default the 
+plotter contains a single plotting region that covers the entire page, however 
+any number of regions can be defined by the user. These regions may either 
+consist of a regular grid created using the
+<a href="../api/hep/aida/IPlotter.html#createRegions(int, int, int)">
+IPlotter.createRegions() </a>method, or an arbitrary arrangement of regions 
+created using the
+<a href="../api/hep/aida/IPlotter.html#createRegion(double, double, double, double)">
+IPlotter.createRegion()</a> method. At any time there is one currentRegion, 
+which is the region that will be used when a new item is plotted. The Plotter 
+allows histograms, clouds, and functions to be plotted. If more than one item is 
+added to the same region the items will be overlaid on the same plot.</p>
+
+<p>The following example shows how to use these methods:</p>
+
+<p><!--webbot bot="HTMLMarkup" StartSpan --><servlet code="ColorizeServlet">
+<param name="source" value="examples/PlotExample.java">
+</servlet><!--webbot BOT="HTMLMarkup" endspan --></p>
+
+<hr>
+$Id: plotting.shtml,v 1.1 2002/10/14 22:59:22 turri Exp $
+</body>
+
+</html>

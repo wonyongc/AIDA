@@ -1,0 +1,14 @@
+Philosophy
+----------
+
+Generally no ASCII dump routines are provided. Some implementations may choose 
+to implement the show methods as ascii dump.
+
+Java methods throw exceptions as appropriate. 
+C++ methods should typically return bool instead (until Exceptions are generally available)
+C++ will for now return pointers to managed objects, so that it can return 
+0 in case of error. These should be changed to references when exceptions are allowed.
+
+Geant4
+------
+

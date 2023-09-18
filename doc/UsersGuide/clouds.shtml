@@ -1,0 +1,47 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<link rel="stylesheet" type="text/css" href="aida.css">
+</head>
+
+<body>
+
+<h3><a name="Clouds">Clouds</a></h3>
+<p>Clouds are one, two or three dimensional unbinned collections of data. They are used for scatter plots
+or dynamically rebinnable Histograms. A Cloud can be automatically converted to 
+an Histogram when the number of entries exceeds a given threshold, or can be 
+manually converted by the user.</p>
+
+
+<h4><a name="CreateACloud">Create an ICloud</a></h4>
+<p>IClouds are created through a
+<a href="../api/hep/aida/IHistogramFactory.html">IHistogramFactory</a> as shown in
+the example below:</p>
+<p><!--webbot bot="HTMLMarkup" StartSpan --><servlet code="ColorizeServlet">
+<param name="source" value="examples/CloudCreate.java">
+</servlet><!--webbot BOT="HTMLMarkup" endspan --></p>
+<p>In this example the IClouds <i>cl1D</i> and <i>cl2D</i> are set by default to autoconvert when the threshold
+is reached. (Please note that in this case the threshold depends on the particular implementation of the
+AIDA package you are using). For the ICloud <i>cl3D</i> we set the threshold at 1500 events and we choose to
+switch off the <i>autoConvert</i> option; in this case to convert the ICloud it is necessary to invoke
+the <i>convert</i> method.
+
+<h4><a name="FillACloud">Filling an ICloud</a></h4>
+<p>In the example below we fill a 1-Dimensional and a 2-Dimensional Cloud with random numbers. For each entry
+we assign a random weight. We then plot the histograms produced by the Cloud auto-conversion</p>
+<p><!--webbot bot="HTMLMarkup" StartSpan --><servlet code="ColorizeServlet">
+<param name="source" value="examples/Cloud.java">
+</servlet><!--webbot BOT="HTMLMarkup" endspan --></p>
+
+<p><a href="index.shtml">Table of Contents </a>-- <a href="dataPointSets.shtml">Next 
+Section</a></p>
+
+<hr>
+$Id: clouds.shtml,v 1.4 2002/11/26 00:23:52 turri Exp $
+</body>
+
+</html>

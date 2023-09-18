@@ -1,0 +1,79 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<link rel="stylesheet" type="text/css" href="aida.css">
+</head>
+
+<body>
+
+<h1>AIDA Users Guide</h1>
+<p>
+After a brief <a href="#Introduction">introduction</a> to AIDA, its purpose and its 
+philosophy, we present examples showing how to use each major component of the 
+AIDA toolkit.</p>
+<h2>Contents</h2>
+<ul>
+  <li><a href="factories.shtml#Introduction">Introduction</a><ul>
+    <li><a href="factories.shtml#What is AIDA">What is AIDA?</a></li>
+    <li><a href="factories.shtml#Example">An Example AIDA program</a></li>
+  </ul>
+  </li>
+  <li><a href="factories.shtml#Overview">Overview of AIDA Classes</a><ul>
+    <li><a href="factories.shtml#Factories">Factories</a></li>
+    <li><a href="histograms.shtml#Histograms">Histograms</a></li>
+    <ul>
+       <li><a href="histograms.shtml#HistogramArithmetic">Histogram arithmetic</a></li>
+    </ul>
+    <li><a href="profiles.shtml#Profiles">Profiles</a></li>
+    <ul>
+       <li><a href="profiles.shtml#ProfileCreate">Create an IProfile</a></li>
+       <li><a href="profiles.shtml#ProfileFill">Fill an IProfile</a></li>
+       <li><a href="profiles.shtml#ProfileFitAndPlot">Fit and Plot an IProfile</a></li>
+       </ul>
+    <li><a href="clouds.shtml#Clouds">Clouds</a></li>
+    <ul>
+       <li><a href="clouds.shtml#CreateACloud">Create an ICloud</a></li>
+       <li><a href="clouds.shtml#FillACloud">Filling an ICloud</a></li>
+    </ul>
+    <li><a href="dataPointSets.shtml#DataPointSets">DataPointSets</a></li>
+    <ul>
+       <li><a href="dataPointSets.shtml#DataPointSetCreateAndFill">Create and Fill an IDataPointSet</a></li>
+       <li><a href="dataPointSets.shtml#DataPointSetCreateFillAndFit">Create, Fill and Fit an IDataPointSet</a></li>
+       <li><a href="dataPointSets.shtml#DataPointSetCreateFromData">Create an IDataPointSet from another AIDA data source</a></li>
+       </ul>
+    <li><a href="tuples.shtml#Tuples">Tuples</a></li>
+    <ul>
+       <li><a href="tuples.shtml#CreateATuple">Create an ITuple</a></li>
+       <li><a href="tuples.shtml#FillATuple">Filling an retrieve data from an ITuple</a></li>
+       <li><a href="tuples.shtml#FiltersAndEvaluators">Use of IFilters and IEvaluators</a></li>
+       <li><a href="tuples.shtml#ChainedAndFilteredTuples">Create Chained and Filtered ITuples</a></li>
+       <li><a href="tuples.shtml#ComplexTuple">ITuple with complex structure</a></li>
+    </ul>    
+    <li><a href="trees.shtml#Trees">IO and Trees</a></li>
+    <ul>
+       <li><a href="trees.shtml#Directories">Directories</a></li>
+       <li><a href="trees.shtml#StoringAndRetrievingTrees">Storing and Retrieving Trees (and their contents)</a></li>
+       <li><a href="trees.shtml#AdvancedTreeCapabilities">Advanced Tree Capabilites</a></li>
+    </ul>    
+    <li><a href="plotting.shtml#Plotting">Plotting</a></li>
+    <li><a href="functions.shtml#Functions">Functions</a></li>
+    <li><a href="fitter.shtml#Fitter">Fitter</a></li>
+    <ul>
+       <li><a href="fitter.shtml#Chi2FitToHistogram">Simple Chi2 fit to an Histogram</a></li>
+       <li><a href="fitter.shtml#SimpleBinnedAndUnbinnedFits">Simple binned and unbinned fits</a></li>
+       <li><a href="fitter.shtml#ControlFitParametersAndConstraints">Control fit parameters and set constraints</a></li>
+       <li><a href="fitter.shtml#ScansAndContours">Scans and contours</a></li>
+    </ul>    
+  </ul>
+  </li>
+</ul>
+
+<hr>
+$Id: index.shtml,v 1.22 2003/03/20 23:15:50 turri Exp $
+</body>
+
+</html>

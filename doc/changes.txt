@@ -1,0 +1,202 @@
+May 23 2003 (Upgraded to FreeHEP 1.2+)
+- AIDA-3: new aid version 0.9.2
+- removed convertAIDA.py since it is no longer used
+
+April 14 2003 (Upgraded to FreeHEP 1.1+)
+- new ANT version 1.5.3
+- new aid version 0.8.1
+- removed jaxp.jar and parser.jar
+- JDK minimum now 1.4.x
+
+January 25 2002 (C++ addition)
+- added AIDA.h in the AIDA include dir which includes all other AIDA.h files
+
+January 23 2002 (Java + documentation changes, no changes to C++ necessary) tj
+- Make documentation in IPlotter clearer, remove spurious boolean returns
+- Change IAnalysisFactory to abstract class (pending discussion on mailing list).
+- Add proposed dtd for Tuples, plus example xml file
+- Add first stab at users guide to doc (http://aida.freehep.org/lib/doc/UsersGuide/index.shtml)
+
+January 10 2002 (Java changes, no changes to C++ necessary)
+- added storeName() method to ITree.java
+- changed Vector to double[] in IFunctionFactory.java
+
+November 29 2001 (After the too short video meeting)
+- Add IPlotter.currentRegion to retrieve the current region index.
+- Have IPlotter.createRegion, createRegions.
+- Rename IPlotter.reset to IPlotter.clearRegion.
+- Have IPlotter.clearPage.
+- Remove IPlotter.add, the job being done by IPlotter.plot.
+- IPlotter.plot does not move automaticly to the next region.
+- Remove show() from IHistogram, IFunction, ICloud.
+  The IPlotter is used instead.
+
+November 26 2001 (gb)
+- remove IHistogram1D.clearFit (since fit method is now on IFitFunction
+  and there is a IPlotter interface).
+- add a "starting region index" argument to the IPlotter.setRegions method.
+- add IPlotter.remove(IHistogram, IFunction, ICloud).
+- add IPlotter.hide().
+- IAnnotation.findItem -> IAnnotation.value for coherency
+  with IAnnotation.visibility and IAnnotation.value(index).
+- add methods to IAnnotation ; the one suggested by Andreas and Pere Mato.
+
+November 23 2001 (gb)
+- add IPlotter, IPlotterFactory, IAnalysisFactory.createPlotterFactory.
+
+November 15 2001 (gb)
+- add in IAnalysisFactory.h
+  extern "C" {
+   IAnalysisFactory* AIDA_createAnalysisFactory();
+  }
+  to hook and implementation.
+
+November 12 2001 (gb)
+- add IEvaluator.evaluate.
+- add IFilter.accept.
+- add IEvaluatorFactory.
+- add IFilterFactory.
+- add IAnalysisFactory.createEvaluatorFactory.
+- add IAnalysisFactory.createFilterFactory.
+- add ITuple.project methods.
+- supress ITuple.isValid method.
+- in IHistogram[1D,2D,3D].h ; supress the forward declaration of the
+  class itself.
+
+November 07 2001 (tj)
+
+ - added xml directory containing proposed .dtd file (from CERN)
+ - add two example xml files (.aida) to xml directory (from CERN)
+
+ Changes made to .java to bring in-to-line with earlier undocumented changes
+ to .h files.
+ - add IFunctionFactory corresponding to .h file (not that I like it!)
+ - add extra constants in IConstants
+ - add new methods in IFitFunction
+ - change binCenter methods in IHistogram2D and IHistogram3D (does this make sense?)
+
+Changes meeting Guy, Andreas from 25 October 20
+===============================================
+
+ - added createFunctionFactory to IAnalysisFactory
+
+Release 2.1 (not yet tagged in CVS)
+
+August 09 2001 (ap)
+- added missing binCentre(...) methods to the histograms.
+
+August 08 2001 (ap)
+- added several "const" qualifier to methods in various places.
+- re-instantiated use of default arguments for simpler conversion with SWIG
+- changed returned strings to be copies instead of references ...
+  mainly for backward compatibility (LHCb)
+
+August 07 2001 (ap)
+- modified converter to transform "Class" into "const std::string &"
+  and return "bool" instead of "void" in order to trap errors (this
+  is done for all methods returning void, probably overkill ...)
+- converted .java files to .h using converter
+- modified IConstants.h by hand for a more "clean" Interface
+  (enum for UNDERLOW_BIN/OVERFLOW_BIN, const std::string for version with
+  pure virtual std::string version() getter-method)
+
+July 24 2001 (duns)
+Fixed two typos:
+- IHistogramFactory.div(3D) now returns IHistogram3D
+- ITupleFactory.create(String, boolean, boolean, String) now throws IOException
+
+July 19 2001 (tonyj)
+Removed sub/mul/div/project/slice methods from IHistogram*
+(since they are moved to IHistogramFactory).
+Changed documentation on add method in IHistorgram* to make it
+clear that it modifies the current histogram.
+
+Add extra "convenience" constructor to ITupleFactory.
+     ITuple t = tf.create("MyTuple","My Wonderful Tuple",
+                          "float px, py, pz, float energy, int charge",null);
+
+
+Changes from Geant4 workshop
+============================
+July 4 2001
+
+Files renamed
+
+IMasterFactory -> IAnalysisFactory
+AIDAConstants  -> IConstants
+
+ITuple
+  Add method label()
+  Add method resetRow()
+  method findColumn now throws possible exception
+
+ITupleFactory
+  remove argument tree from create()
+
+IAnalysisFactory
+  remove several methods which did not take a tree argument
+
+Updates to javadoc comments in many classes
+
+
+Release 2.0.1 (cvs tag v2_0_1)
+==============================
+
+Regenerated .h files using new Java->.h tool
+Added python script for converting Java files to .h files.
+
+
+Release 2.0 (cvs tag v2_0)
+==========================
+
+
+
+
+Changes from the pre-HepVIS AIDA workshop
+=========================================
+30 April, 1 May 2001
+
+Documentation:
+- use Iinterfacename.h for Interfaces
+
+Moved:
+- IStore into developer interface
+
+Added:
+- added IAIDAConstants.h to include
+- added IBackingStore.java to dev
+- added ITreeFactory.java to aida
+- added IDevTree.java to dev
+
+ITree:
+- documented some methods
+- added rm(), findPath(), mv(), mkdirs();
+- renamed list() into ls();
+- added commit(), cp(), symlink();
+- added mount(), unmount(), close();
+
+IManagedObject:
+- changed label() into name();
+
+IHistogram:
+- added setLabel();
+
+ICloud:
+- added setLabel();
+
+IStore:
+- added write();
+
+IMasterFactory:
+- renamed createTree() into createTreeFactory();
+- removed defaultTree();
+
+ITreeFactory:
+- added open() 2x;
+- added create();
+
+ITupleFactory:
+- changed ref to IStore into ITree
+
+IHistogram:
+- removed store methods (2x)

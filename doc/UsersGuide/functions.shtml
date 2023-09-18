@@ -1,0 +1,29 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<link rel="stylesheet" type="text/css" href="aida.css">
+</head>
+
+<body>
+
+<h3><a name="Functions">Functions</a></h3>
+
+<p>The following example shows how to create a simple function and use it to do 
+a simple fit to a histogram:</p>
+
+<p><!--webbot bot="HTMLMarkup" StartSpan --><servlet code="ColorizeServlet">
+<param name="source" value="examples/FitExample.java">
+</servlet><!--webbot BOT="HTMLMarkup" endspan --></p>
+
+<p><a href="index.shtml">Table of Contents </a>-- <a href="fitter.shtml">Next 
+Section</a></p>
+
+<hr>
+$Id: functions.shtml,v 1.2 2002/11/13 02:35:13 tonyj Exp $
+</body>
+
+</html>

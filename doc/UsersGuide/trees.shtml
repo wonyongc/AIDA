@@ -1,0 +1,83 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<link rel="stylesheet" type="text/css" href="aida.css">
+</head>
+
+<body>
+
+<h3>IO and <a name="Trees">Trees</a></h3>
+<p>The AIDA <a href="../api/hep/aida/ITree.html">ITree</a> interface provide two capabilities. The ability to group analysis objects 
+such as Histograms, Clouds, Tuples <i>etc.</i> into hierarchical directories (or 
+folders), and the ability to save and restore sets of analysis objects into 
+files or databases. </p>
+<h4><a name ="Directories">Directories</a></h4>
+<p>Here is an example of how to create a set of histograms in several different 
+folders:</p>
+<p><!--webbot bot="HTMLMarkup" StartSpan --><servlet code="ColorizeServlet">
+<param name="source" value="examples/Tree.java">
+</servlet><!--webbot BOT="HTMLMarkup" endspan --></p>
+<p>Each <a href="../api/hep/aida/IHistogramFactory.html">IHistogramFactory</a> has an 
+<a href="../api/hep/aida/ITree.html">ITree</a> associated with it. The 
+<a href="../api/hep/aida/ITree.html">ITree</a> is set when 
+the <a href="../api/hep/aida/IHistogramFactory.html">IHistogramFactory</a> is created. Whenever the 
+<a href="../api/hep/aida/IHistogramFactory.html">IHistogramFactory</a> creates a new 
+<a href="../api/hep/aida/IHistogram.html">IHistogram</a> it implicitly inserts it into the current directory of the associated
+<a href="../api/hep/aida/ITree.html">ITree</a>. The 
+<a href="../api/hep/aida/ITree.html">ITree</a> initially contains a single folder (the &quot;root folder&quot;). New 
+folders can be added using the 
+<a href="../api/hep/aida/ITree.html#mkdir(java.lang.String)">mkdir(path)</a> or
+<a href="../api/hep/aida/ITree.html#mkdirs(java.lang.String)">mkdirs(path)</a> method. You can 
+change the current directory of the tree using the
+<a href="../api/hep/aida/ITree.html#cd(java.lang.String)">cd(path)</a> method. All methods 
+that take a path as an argument interpret that path using Unix conventions, so:</p>
+<ul>
+  <li>/ is the delimiter character.</li>
+  <li>Paths that start with / are absolute (from the root directory) while paths 
+  that do not start with / are relative to the current directory.</li>
+  <li>.. can be used to indicate &quot;go up one directory&quot;.</li>
+</ul>
+<p>Trees also have methods for removing objects or directories, for locating 
+objects within the tree, and for listing the contents of directories.</p>
+<h4><a name="StoringAndRetrievingTrees">Storing and Retrieving Trees (and their contents)</a></h4>
+<p>A second use for trees is to allow objects to be stored and retrieved from 
+files or databases. So far we have always used the 
+<a href="../api/hep/aida/ITreeFactory.html#create(java.lang.String, java.lang.String)">ITreeFactory.create()</a> method 
+to create <a href="../api/hep/aida/ITree.html">ITree</a>'s. This method creates an 
+<a href="../api/hep/aida/ITree.html">ITree</a> that is not associated with any 
+storage, so the objects associated with this type of Tree are only valid within 
+the current process. The other methods of 
+<a href="../api/hep/aida/ITreeFactory.html">ITreeFactory</a> allow 
+<a href="../api/hep/aida/ITree.html">ITree</a>'s to be 
+associated with a file or database. The following example shows how to create a 
+set of histograms and store them in a file.</p>
+<p><!--webbot bot="HTMLMarkup" StartSpan --><servlet code="ColorizeServlet">
+<param name="source" value="examples/Store.java">
+</servlet><!--webbot BOT="HTMLMarkup" endspan --></p>
+<p>In this case we are creating a compressed XML file. The precise types of 
+files or databases which can be used will depend on which implementation of AIDA 
+you are using, however all AIDA implementations should support reading and 
+writing XML files to allow easy interchange of objects. The next example shows how to 
+read an XML file back in.</p>
+<!--webbot bot="HTMLMarkup" StartSpan --><servlet code="ColorizeServlet">
+<param name="source" value="examples/Restore.java">
+</servlet><!--webbot BOT="HTMLMarkup" endspan -->
+<h4><a name="AdvancedTreeCapabilities">Advanced Tree Capabilities</a></h4>
+<p>In designing the ITree interface we have borrowed some other concepts from 
+Unix. In particular ITree's allow other ITree's to be mounted and unmounted at 
+an arbitrary point in the tree. This allows a whole set of files to be opened 
+but be viewed by the AIDA user as a single ITree. ITree's also support symbolic 
+links.</p>
+
+<p><a href="index.shtml">Table of Contents </a>-- <a href="functions.shtml">Next 
+Section</a></p>
+
+<hr>
+$Id: trees.shtml,v 1.3 2003/10/03 01:23:37 tonyj Exp $
+</body>
+
+</html>
